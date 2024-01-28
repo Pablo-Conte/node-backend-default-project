@@ -1,0 +1,46 @@
+services:
+  site_test_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: site_test_app
+    restart: always
+    ports:
+      - 3001:3001
+    links:
+      - site_test_database
+    depends_on:
+      - site_test_database
+    env_file:
+      - .env
+    logging:
+      options:
+        max-size: 10m
+    volumes:
+      - .:/usr/app
+
+  site_test_database:
+    image: postgres:15.2
+    container_name: site_test_database
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test
+    env_file:
+      - .env
+    volumes:
+      - pgdatatest:/data/postgres
+    logging:
+      options:
+        max-size: 10m
+
+volumes:
+  pgdatatest:
+    driver: local
+
+networks:
+  default:
+    driver: bridge
