@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Generate Deployment Package
-        run: zip -r nodejs-app-build.zip ./dist
+        run: cd ./dist && zip -r ../nodejs-app-build.zip ./* && cd ..
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
