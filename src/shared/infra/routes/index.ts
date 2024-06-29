@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { usersRouter } from "./accounts/users.routes";
 
 const router = Router();
 
-router.use(usersRouter);
+router.get("/", (req, res) => {
+    return res.json({ message: "Hello World" });
+})
 
 export { router };

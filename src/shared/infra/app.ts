@@ -6,7 +6,6 @@ import cors from "cors";
 import { Server } from "socket.io";
 import { createServer } from "http";
 import { router } from "./routes";
-import "../container";
 import { errorHandler } from "../../utils/errorHandler";
 
 const app = express();
