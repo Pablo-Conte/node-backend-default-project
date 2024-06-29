@@ -18,11 +18,20 @@ jobs:
         with:
           node-versions: 20
 
+
+      - name: Copy package.json to dist
+        run: cp package.json ./dist/
+
       - name: Install Dependencies
         run: npm install
 
+
+      - name: Copy node_modules to dist
+        run: cp -r node_modules ./dist/
+
       - name: Generate Deployment Package
         run: cd ./dist && zip -r ../nodejs-app-build.zip ./* && cd ..
+
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
