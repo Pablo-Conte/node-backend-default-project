@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/shared/infra/server.ts --watch",
+    "dev": "tsc ./dist/server.js --watch",
     "build": "tsc",
     "docker:recreate": "docker stop site_test_app && docker rm site_test_app && docker compose up -d && docker logs -f site_test_app"
   },

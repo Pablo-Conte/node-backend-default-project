@@ -1,4 +1,4 @@
-import { httpServer } from "./app";
+import { httpServer } from "./shared/infra/app";
 
 const port = process.env.PORT || 3001;
 
