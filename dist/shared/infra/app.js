@@ -35,7 +35,6 @@ const cors_1 = __importDefault(require("cors"));
 const socket_io_1 = require("socket.io");
 const http_1 = require("http");
 const routes_1 = require("./routes");
-require("../container");
 const errorHandler_1 = require("../../utils/errorHandler");
 const app = (0, express_1.default)();
 const expressParserLimit = "50mb";
