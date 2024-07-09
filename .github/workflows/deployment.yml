@@ -33,6 +33,9 @@ jobs:
       - name: Copy Dockerfile to dist
         run: cp Dockerfile.prod ./dist/
 
+      - name: Log files in dist
+        run: ls -l ./dist
+
       - name: Generate Deployment Package
         run: cd ./dist && zip -r ../nodejs-app-build.zip ./* && cd ..
 
