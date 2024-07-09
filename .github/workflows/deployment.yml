@@ -18,15 +18,14 @@ jobs:
         with:
           node-versions: 20
 
+      - name: Install Dependencies
+        run: npm install
+
       - name: build app
         run: npm run build
 
       - name: Copy package.json to dist
         run: cp package.json ./dist/
-
-      - name: Install Dependencies
-        run: npm install
-
 
       - name: Copy node_modules to dist
         run: cp -r node_modules ./dist/
