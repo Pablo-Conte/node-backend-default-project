@@ -30,8 +30,8 @@ jobs:
       - name: Copy node_modules to dist
         run: cp -r node_modules ./dist/
 
-      - name: Copy Dockerfile to dist
-        run: cp Dockerfile.prod ./dist/
+      - name: Copy Dockerfile.prod to dist and rename to Dockerfile
+        run: cp Dockerfile.prod ./dist/Dockerfile
 
       - name: Log files in dist
         run: ls -l ./dist
