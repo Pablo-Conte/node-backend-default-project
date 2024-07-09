@@ -18,6 +18,8 @@ jobs:
         with:
           node-versions: 20
 
+      - name: build app
+        run: npm run build
 
       - name: Copy package.json to dist
         run: cp package.json ./dist/
@@ -28,6 +30,9 @@ jobs:
 
       - name: Copy node_modules to dist
         run: cp -r node_modules ./dist/
+
+      - name: Copy Dockerfile to dist
+        run: cp Dockerfile.prod ./dist/
 
       - name: Generate Deployment Package
         run: cd ./dist && zip -r ../nodejs-app-build.zip ./* && cd ..
