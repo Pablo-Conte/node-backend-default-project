@@ -6,6 +6,8 @@ COPY package.json ./
 
 COPY . .
 
+RUN ["ls", "-la"]
+
 EXPOSE 3001
 
 CMD [ "npm", "run", "start-prod" ]
